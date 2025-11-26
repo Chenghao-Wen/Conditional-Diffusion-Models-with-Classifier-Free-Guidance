@@ -53,8 +53,8 @@ loss = diffusion(
 print(f"Training Loss: {loss.item()}")
 
 
-# --- 6. 模拟采样/推理步骤 (Inference Step) ---
-# (这部分不变)
+# --- 6. / (Inference Step) ---
+# ()
 print("\n--- (Inference) ---")
 
 num_samples = 4
@@ -63,7 +63,8 @@ desired_classes = torch.full((num_samples,), target_class, dtype=torch.long)
 
 sampled_images = diffusion.sample(
     classes = desired_classes,
-    cond_scale = 7.5           
+    cond_scale = 7.5,
+    dynamic_method = "constant"   
 )
 
 print(f" Shape of Generated Images: {sampled_images.shape}")
